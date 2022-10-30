@@ -1,26 +1,22 @@
 {
-  "name": "web-pairing-kit",
+  "name": "interview",
+  "version": "0.0.0",
+  "description": "GYG Interview Frontend",
+  "repository": "git@github.com:polaroidkidd/web-pairing-kit.git",
+  "author": "Daniel Einars <contact@dle.dev>",
+  "license": "MIT",
   "private": true,
-  "version": "1.0.0",
-  "description": "Toolkit for web pairing exercise.",
-  "main": "index.js",
+  "workspaces": [
+    "./packages/server",
+    "./packages/frontend"
+  ],
   "scripts": {
-    "server": "nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:server": "yarn workspace web-pairing-kit run dev",
+    "dev:frontend": "yarn workspace frontend run dev",
+    "dev": "concurrently \"yarn dev:server\" \"yarn dev:frontend\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/getyourguide/web-pairing-kit.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/getyourguide/web-pairing-kit/issues"
-  },
-  "homepage": "https://github.com/getyourguide/web-pairing-kit#readme",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.4"
+    "concurrently": "^7.5.0",
+    "prettier": "^2.7.1"
   }
 }
